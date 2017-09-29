@@ -1,0 +1,110 @@
+1.  Define the function of a constructor. [2]
+    A method that allows you to create objects from a class.
+
+2. Outline the advantages of polymorphism, using the RollingStock class as an example. [3]
+    In the case of rollingstock, they all have an ID and weight, however there are two types of rollingstock: wagons and engines.
+    They both inherit from rollingstock, but have different processes. This removes redundancy, and allows the same functions to be applied to all rollingstock.
+
+3. Construct a unified modelling language (UML) diagram of the Train class. [3]
+ ________________________
+|Train                   |
+|________________________|
+|mEngineCount:Integer    |
+|mWagonCount:Integer     |
+|mTrainNumber:Integer    |
+|mWeight:double          |
+|________________________|
+|addEngine( Engine )     |
+|removeEngine( Engine )  |
+|addWagon( Wagon )       |
+|removeWagon( Wagon )    |
+|getWeight()             |
+|________________________|
+
+
+4. Construct a method getNumberOfWagons(), part of the Train class, that returns the
+number of wagons currently coupled to the train. [2]
+
+    public int getNumberOfWagons(){
+        return mWagonCount;
+    }
+
+5. Construct the removeWagon() method that will remove one wagon from a train and
+return the removed object. Include appropriate error checking. [5]
+
+    public Wagon removeWagon(){
+        mWagonCount--;
+        return mWagons[mWagonCount];
+    }
+
+6. Outline one advantage of using standard library collections. [2]
+Standard library collections allow for reuse of code.
+
+7. Describe two ways in which programming by a team differs from programming by an
+individual working alone. [4]
+Problem solving becomes easier when there is more than one person working to find the solution.
+Each programmer can be good at one individual thing, and when put together their specialties combine to make a better product.
+
+8.  State the appropriate data type to be used in the Address class to store
+(i) the street name; [1]
+    String
+(ii) the building number; [1]
+    Integer
+(iii) an indication of whether or not this is a business address. [1]
+    Boolean
+
+****9. Identify the changes to the Parcel class that will be needed to make use of the new
+Address class. [3]
+
+10. Outline how these two new classes can be created with minimal duplication of code. [3]
+
+public class OriginAddress extends Address{
+    private Boolean postOffice;
+    public OriginAddress(String streetName, Integer buildingNumber, Boolean business, Boolean postOffice){
+        super(streetName,buildingNumber,business);
+        this.postOffice=postOffice;
+    }
+}
+
+public class DestinationAddress extends Address {
+    private String specialInstructions;
+    public DestinationAddress(String streetName, Integer buildingNumber, Boolean business, String specialInstructions){
+        super(streetName, buildingNumber, business);
+        this.specialInstructions=specialInstructions;
+    }
+}
+
+
+****11. Consider the following code fragment.
+
+Train A = new Train(123);
+Engine B = new Engine(7);
+A.addEngine(B);
+Wagon C = new Wagon(23);
+A.addWagon(C);
+Wagon D = new Wagon(66);
+A.addWagon(D);
+Wagon E = new Wagon(71);
+A.addWagon(E);
+A.addEngine(new Engine(9));
+
+****(i) Draw the mEngines array after the code fragment has been executed. [2]
+(ii) State the value of mEngineCount after the code fragment has been executed. [1]
+2
+****(iii) Draw the mWagons array after both the code fragment above and the code fragment
+below have been executed. [2]
+
+
+Wagon F = A.removeWagon();
+F = A.removeWagon();
+A.addWagon(new Wagon(214));
+
+12. Construct the getWeight() method in the Wagon class that returns the total combined
+weight of the parcels currently in the wagon and the wagon itself. [4]
+
+13. Construct the getWeight() method in the Train class that returns the total combined
+weight of all the parcels, engines and wagons in a train. [4]
+
+****14. Explain why having a getWeight() method in both the Train and Wagon classes
+does not cause a compiler error, even though the Train class does not inherit from the
+RollingStock class. [2]
