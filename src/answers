@@ -53,8 +53,9 @@ Each programmer can be good at one individual thing, and when put together their
 (iii) an indication of whether or not this is a business address. [1]
     Boolean
 
-****9. Identify the changes to the Parcel class that will be needed to make use of the new
+9. Identify the changes to the Parcel class that will be needed to make use of the new
 Address class. [3]
+You must replace the String destinationAddress and originAddress with DestinationAddress destinationAddress and OriginAddress originAddress (objects)
 
 10. Outline how these two new classes can be created with minimal duplication of code. [3]
 
@@ -75,7 +76,7 @@ public class DestinationAddress extends Address {
 }
 
 
-****11. Consider the following code fragment.
+11. Consider the following code fragment.
 
 Train A = new Train(123);
 Engine B = new Engine(7);
@@ -88,11 +89,13 @@ Wagon E = new Wagon(71);
 A.addWagon(E);
 A.addEngine(new Engine(9));
 
-****(i) Draw the mEngines array after the code fragment has been executed. [2]
+(i) Draw the mEngines array after the code fragment has been executed. [2]
+[7,9]
 (ii) State the value of mEngineCount after the code fragment has been executed. [1]
 2
-****(iii) Draw the mWagons array after both the code fragment above and the code fragment
+(iii) Draw the mWagons array after both the code fragment above and the code fragment
 below have been executed. [2]
+[23,214,71]
 
 
 Wagon F = A.removeWagon();
@@ -104,7 +107,9 @@ weight of the parcels currently in the wagon and the wagon itself. [4]
 
 13. Construct the getWeight() method in the Train class that returns the total combined
 weight of all the parcels, engines and wagons in a train. [4]
+In the Train class
 
-****14. Explain why having a getWeight() method in both the Train and Wagon classes
+14. Explain why having a getWeight() method in both the Train and Wagon classes
 does not cause a compiler error, even though the Train class does not inherit from the
 RollingStock class. [2]
+Because they are separate implementations. They both have weights.
